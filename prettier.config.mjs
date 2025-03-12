@@ -1,7 +1,16 @@
 /** @type {import('prettier').Config} */
-const plugin = require('tailwindcss/plugin')
+import plugin from 'tailwindcss/plugin'
 export default {
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss",
+    plugin(function ({ addBase, config }) {
+      addBase({
+        'h1': { fontSize: config('theme.fontSize.2xl') },
+        'h2': { fontSize: config('theme.fontSize.xl') },
+        'h3': { fontSize: config('theme.fontSize.lg') },
+      })
+    })
+
+  ],
   overrides: [
     {
       files: "*.astro",
@@ -13,13 +22,4 @@ export default {
   // tailwindcss
   tailwindAttributes: ["theme"],
   tailwindFunctions: ["twMerge", "createTheme"],
-  plugins: [
-    plugin(function ({ addBase, config }) {
-      addBase({
-        'h1': { fontSize: config('theme.fontSize.2xl') },
-        'h2': { fontSize: config('theme.fontSize.xl') },
-        'h3': { fontSize: config('theme.fontSize.lg') },
-      })
-    })
-  ]
 };

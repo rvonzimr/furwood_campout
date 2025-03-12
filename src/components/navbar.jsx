@@ -1,14 +1,13 @@
 import telegramIcon from "../../assets/telegram.svg";
-import { styles } from "./texture";
 
 export default () => {
 
   const navItems = [
-    { label: "Home", link: "" },
+    { label: "Home", link: "/" },
     { label: "Schedule", link: "" },
-    { label: "Tickets", link: "" }
+    { label: "Tickets", link: "/tickets" }
   ].map(item => (
-    <li><a href={item.link}>{item.label}</a></li>
+    <li key={`${item.label}#${item.link}`}><a href={item.link}>{item.label}</a></li>
   ))
 
   return (
@@ -24,7 +23,7 @@ export default () => {
             {navItems}
           </ul>
         </div>
-        <a className="font-quicksand font-bold lg:text-5xl text-4xl drop-shadow-2xl text-nowrap nav-shadow">Furwood Campout</a>
+        <a className="font-quicksand font-bold lg:text-5xl text-xl drop-shadow-2xl text-nowrap nav-shadow">Furwood Campout</a>
       </div>
       <div className="navbar-end gap-12">
         <ul className="menu menu-horizontal px-1 hidden lg:flex uppercase underline font-amitic font-bold text-3xl gap-10">
