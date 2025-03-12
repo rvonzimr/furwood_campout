@@ -6,7 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react()],
-  site: "https://rvonzimr.github.io/furwood_campout",
+  site: "https://rvonzimr.github.io",
+  base: "furwood_campout",
   vite: {
     plugins: [tailwindcss()],
   },
